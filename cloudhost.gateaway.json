@@ -1,0 +1,86 @@
+{
+ "result": {
+ "id": "abc123def456ghi789",
+ "name": "1989shack.com",
+ "status": "pending",
+ "paused": false,
+ "type": "full",
+ "development_mode": 0,
+ "name_servers": [
+ "chad.ns.cloudflare.com",
+ "lucy.ns.cloudflare.com"
+ ],
+ "original_name_servers": [
+ "ns-cloud-e1.googledomains.com",
+ "ns-cloud-e2.googledomains.com",
+ "ns-cloud-e3.googledomains.com",
+ "ns-cloud-e4.googledomains.com"
+ ],
+ "original_registrar": null,
+ "original_dnshost": null,
+ "modified_on": "2018-02-12T01:42:13.827149Z",
+ "created_on": "2018-02-12T01:42:13.827149Z",
+ "meta": {
+ "step": 4,
+ "wildcard_proxiable": false,
+ "custom_certificate_quota": 0,
+ "page_rule_quota": 3,
+ "phishing_detected": false,
+ "multiple_railguns_allowed": false
+ },
+ "owner": {
+ "id": "abc123def456ghi789",
+ "type": "user",
+ "email": "martinmsheriff@1989shack.com"
+ },
+ "account": {
+ "id": "abc123def456ghi789",
+ "name": "martinmsheriff@1989shack.com"
+ },
+ "permissions": [
+ "#access:edit",
+ "#access:read",
+ "#analytics:read",
+ "#app:edit",
+ "#billing:edit",
+ "#billing:read",
+ "#cache_purge:edit",
+ "#dns_records:edit",
+ "#dns_records:read",
+ "#lb:edit",
+ "#lb:read",
+ "#logs:read",
+ "#member:edit",
+ "#member:read",
+ "#organization:edit",
+ "#organization:read",
+ "#ssl:edit",
+ "#ssl:read",
+ "#subscription:edit",
+ "#subscription:read",
+ "#waf:edit",
+ "#waf:read",
+ "#worker:edit",
+ "#worker:read",
+ "#zone:edit",
+ "#zone:read",
+ "#zone_settings:edit",
+ "#zone_settings:read"
+ ],
+ "plan": {
+ "id": "0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+ "name": "Free Website",
+ "price": 0,
+ "currency": "USD",
+ "frequency": "",
+ "is_subscribed": true,
+ "can_subscribe": false,
+ "legacy_id": "free",
+ "legacy_discount": false,
+ "externally_managed": false
+ }
+ },
+ "success": true,
+ "errors": [],
+ "messages": []
+}
