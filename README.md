@@ -1,2 +1,2 @@
 # 1989shack.com
-Web Hosting, Domains Registrars, DNS Records with WHOIS Protection and IP Servers addresses
+E-commerce Platform, Websites Builder, Infrastructure Hosting Platform, Online shopping platform, Shipping Provider, Internet Provider, Technology Company, Live Broadcasting, IP Servers Data Center Web Hosting, Domains Registrars, DNS Records with WHOIS Protection and IP Servers addresses, Domain Manager, Social Media Platform, Online Radio Station, Information Services, Communication Provider, and Security Data Management System 
