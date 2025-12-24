@@ -1,0 +1,21 @@
+name: Deploy to freehosting.com via FTP
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Upload files to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.6.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./ # directory to upload (adjust if your site is in a subfolder)
+          git-ftp-args: --insecure
