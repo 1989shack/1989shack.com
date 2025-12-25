@@ -1,0 +1,13 @@
+name: Domain Setup
+on:
+  workflow_dispatch:
+    inputs:
+      google_token:
+        description: 'Google Verification Token'
+        required: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      ...
