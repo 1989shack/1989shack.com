@@ -1,0 +1,3 @@
+$('#login').click(async () => {
+      await auth0.loginWithRedirect();
+    });

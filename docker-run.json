@@ -1,0 +1,11 @@
+docker run \
+-d \
+--name newrelic-infra \
+--network=host \
+--cap-add=SYS_PTRACE \
+--privileged \
+--pid=host \
+-v "/:/host:ro" \
+-v "/var/run/docker.sock:/var/run/docker.sock" \
+-e NRIA_LICENSE_KEY=eu01xx47ff16a6f1d6dcd98159e10fcc607aNRAL \
+newrelic/infrastructure:latest

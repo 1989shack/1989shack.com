@@ -1,0 +1,6 @@
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  token_id: "1",
+  chain: "eth",
+};
+const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
