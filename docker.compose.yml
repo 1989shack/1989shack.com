@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - --api.insecure=false
+      - --providers.docker=true
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.le.acme.tlschallenge=false
+      - --certificatesresolvers.le.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.le.acme.email=admin@1989shack.com
+      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    restart: always
+
+  agent:
+    build: ./agent
+    environment:
+      - CONTROL_PLANE_URL=https://control.1989shack.com
+      - AGENT_API_KEY=${AGENT_API_KEY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+volumes:
+  traefik_letsencrypt:

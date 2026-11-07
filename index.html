@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Site Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <button id="add-card">Add Card</button>
+    <button id="add-button">Add Button</button>
+    <button id="clear">Clear</button>
+    <button id="export">Export HTML</button>
+  </div>
+
+  <main id="canvas" class="canvas" aria-label="Canvas" tabindex="0"></main>
+
+  <template id="card-template">
+    <section class="card" draggable="true">
+      <img src="https://via.placeholder.com/800x300" alt="placeholder image">
+      <h2 contenteditable="true">Card Title</h2>
+      <p contenteditable="true">Card description — click to edit.</p>
+      <div class="card-actions">
+        <button class="btn">Take Action</button>
+      </div>
+      <button class="remove" title="Remove">✕</button>
+    </section>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
