@@ -1,0 +1,29 @@
+name: Deploy cPanel Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-cpanel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run cPanel setup script on remote server
+        env:
+          HOSTNAME_FQDN: ${{ secrets.HOSTNAME_FQDN }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          MAIN_IP: ${{ secrets.MAIN_IP }}
+          NS1_HOST: ${{ secrets.NS1_HOST }}
+          NS1_IP: ${{ secrets.NS1_IP }}
+          NS2_HOST: ${{ secrets.NS2_HOST }}
+          NS2_IP: ${{ secrets.NS2_IP }}
+          ACCT_USERNAME: ${{ secrets.ACCT_USERNAME }}
+          ACCT_DOMAIN: ${{ secrets.ACCT_DOMAIN }}
+          ACCT_PASS: ${{ secrets.ACCT_PASS }}
+          ACCT_EMAIL: ${{ secrets.ACCT_EMAIL }}
+          PKG_NAME: ${{ secrets.PKG_NAME }}
+        run: |
+          chmod +x scripts/cpanel_setup.sh
+          ./scripts/cpanel_setup.sh
