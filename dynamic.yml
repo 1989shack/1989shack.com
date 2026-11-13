@@ -1,0 +1,22 @@
+http:
+  routers:
+    my-router:
+      rule: Path(`/whoami`)
+      service: service-whoami
+      entryPoints:
+        - http
+      middlewares:
+        - traefik-real-ip
+
+  services:
+   service-whoami:
+      loadBalancer:
+        servers:
+          - url: http://127.0.0.1:5000
+  
+  middlewares:
+    traefik-real-ip:
+      plugin:
+        traefik-real-ip:
+          excludednets:
+            - "1.1.1.1/24"
