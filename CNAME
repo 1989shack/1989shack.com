@@ -1,0 +1,5 @@
+"1989shack.com" | Out-File -Encoding ascii -NoNewline CNAME
+Get-Content CNAME
+git add CNAME
+git commit -m "Add CNAME for 1989shack.com"
+git push origin main
