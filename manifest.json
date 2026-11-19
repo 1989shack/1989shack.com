@@ -1,0 +1,13 @@
+{
+  "name": "1989 Shack",
+  "short_name": "Shack",
+  "description": "Music, Talk, Gaming, Selling, Learning, Shopping - One House",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#ff0000",
+  "icons": [
+    { "src": "https://via.placeholder.com/192x192.png?text=SHACK", "sizes": "192x192", "type": "image/png" },
+    { "src": "https://via.placeholder.com/512x512.png?text=SHACK", "sizes": "512x512", "type": "image/png" }
+  ]
+}
