@@ -126,3 +126,4 @@ function current_user() {
     $st->execute([$_SESSION['user_id']]);
     return $st->fetch();
 }
+
