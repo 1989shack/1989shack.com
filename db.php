@@ -127,3 +127,4 @@ function current_user() {
     return $st->fetch();
 }
 
+
