@@ -1,4 +1,6 @@
+
 <?php
+ob_start();
 session_start();
 require_once 'db.php';
 $user_id = $_SESSION['user_id'] ?? null;
