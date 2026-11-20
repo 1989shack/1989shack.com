@@ -1,7 +1,6 @@
-﻿<?php
+<?php
 session_start();
 require_once 'db.php';
-
 $user_id = $_SESSION['user_id'] ?? null;
 $username = $_SESSION['username'] ?? null;
 $is_admin = $user_id && ($user_id == 1 || strtolower($username ?? '') === 'admin');
