@@ -1,0 +1,57 @@
+<?php
+// db.php - Universal DB Driver for 1989shack.com
+// Works on Render with Postgres OR MySQL
+// Uses Render Env Vars: DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_PORT, DB_TYPE
+
+function getDB() {
+    static $pdo = null;
+    if ($pdo !== null) {
+        return $pdo;
+    }
+
+    $host = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? 'localhost');
+    $name = getenv('DB_NAME') ?: ($_ENV['DB_NAME'] ?? '');
+    $user = getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? '');
+    $pass = getenv('DB_PASS') ?: ($_ENV['DB_PASS'] ?? '');
+    $port = getenv('DB_PORT') ?: ($_ENV['DB_PORT'] ?? '');
+    $type = strtolower(getenv('DB_TYPE') ?: ($_ENV['DB_TYPE'] ?? ''));
+
+    // Auto-detect type if not set
+    if (empty($type)) {
+        if (extension_loaded('pdo_pgsql')) {
+            $type = 'pgsql';
+        } elseif (extension_loaded('pdo_mysql')) {
+            $type = 'mysql';
+        } else {
+            die("Database connection failed. No PDO driver found. Install pdo_pgsql or pdo_mysql in Dockerfile.");
+        }
+    }
+
+    if ($type === 'pgsql') {
+        if (!extension_loaded('pdo_pgsql')) {
+            die("Database connection failed. Check Render Environment Variables: DB_HOST, DB_NAME, DB_USER, DB_PASS. Error: could not find driver pdo_pgsql");
+        }
+        $port = $port ?: '5432';
+        $dsn = "pgsql:host=$host;port=$port;dbname=$name;sslmode=require";
+    } else {
+        if (!extension_loaded('pdo_mysql')) {
+            die("Database connection failed. Check Render Environment Variables: DB_HOST, DB_NAME, DB_USER, DB_PASS. Error: could not find driver pdo_mysql");
+        }
+        $port = $port ?: '3306';
+        $dsn = "mysql:host=$host;port=$port;dbname=$name;charset=utf8mb4";
+    }
+
+    try {
+        $pdo = new PDO($dsn, $user, $pass, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
+        return $pdo;
+    } catch (PDOException $e) {
+        die("Database connection failed. Check Render Environment Variables: DB_HOST, DB_NAME, DB_USER, DB_PASS. Error: " . $e->getMessage());
+    }
+}
+
+// Use it like this in index.php:
+// require_once __DIR__ . '/db.php';
+// $db = getDB();
