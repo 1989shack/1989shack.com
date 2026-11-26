@@ -1,44 +1,25 @@
 
+# 1989shack.com
+Web Hosting, Domains Registrars, DNS Records with WHOIS Protection and IP Servers addresses
 
----
+> **1989SHACK — Parent AI Company**
+> Parent: https://1989shack.com
+> Child: https://joinbuilderhub.com — BuilderHub / Origin Core
+> Backend: FastAPI Cloud + Supabase
+> Frontend: IIS + Cloudflare
+> Status: **GAIHP IS LIVE**
 
-## ⚙️ Requirements
+## 🚀 What Is 1989SHACK?
 
-- **OS:** AlmaLinux 8/9, CloudLinux, or RHEL (fresh install, no control panels).
-- **License:** Valid cPanel/WHM license tied to your server’s public IP.
-- **Networking:** Static IP, open ports (22, 80, 443, 2087, 2083).
-- **Hostname:** Fully qualified domain name (e.g., `server.yourdomain.com`).
-- **Nameservers:** Two nameservers with glue records (e.g., `ns1.yourdomain.com`, `ns2.yourdomain.com`).
+1989SHACK is an AI Company from Liberia, built for the world.
+- **Parent:** 1989shack.com — Appstore, Pay, Liberia Car Factory, Web Hosting
+- **Child:** joinbuilderhub.com — BuilderHub, Origin Core, Jobs, Building
+- **Hosting:** cPanel / WHM Automation — This repo installs cPanel + creates accounts automatically via GitHub Secrets
 
----
+## 🛠️ Usage — FastAPI Backend
 
-## 🔒 Security
-
-Sensitive values (IP, passwords, domains) are **not hardcoded** in the script.  
-Instead, they are injected at runtime using **GitHub Secrets**.
-
-### Example secrets:
-- `HOSTNAME_FQDN`
-- `CONTACT_EMAIL`
-- `MAIN_IP`
-- `NS1_HOST`
-- `NS1_IP`
-- `NS2_HOST`
-- `NS2_IP`
-- `ACCT_USERNAME`
-- `ACCT_DOMAIN`
-- `ACCT_PASS`
-- `ACCT_EMAIL`
-- `PKG_NAME`
-
-Add these under:  
-**Repo → Settings → Secrets and variables → Actions → New repository secret**
-
----
-
-## 🚀 Usage
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/cpanel-automation.git
-cd cpanel-automation
+### 1. Run Backend
+```powershell
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+curl.exe http://localhost:8000/
