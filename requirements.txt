@@ -3,4 +3,4 @@ uvicorn==0.34.0
 httpx==0.28.1
 starlette==0.37.2
 pydantic==2.10.4
-anyio==4.7.0
+anyio==4.14.2
